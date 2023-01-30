@@ -166,8 +166,23 @@ svg{
     line-height: 1.5;
 }
 
+.site-nav .item.current {
+    position: relative;
+}
 .site-nav .link.current {
     color: var(--accent-color);
+}
+
+.site-nav .link.current::after {
+    content: "";
+    position: relative;
+    bottom: 0;
+    left: 0;
+    width: 48px;
+    height: 4px;
+
+    border-radius: 2px;
+    background-color: var(--btn-active-bg);
 }
 
 .site-nav .link:hover,
@@ -245,6 +260,27 @@ svg{
     border-radius: 4px;
     padding: 16px 32px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+}
+
+.modal-layout {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    background-color: rgba(46, 47, 66, 0.4);
+    pointer-events: none;
+}
+
+.modal-btn {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+
+    background: #E7E9FC;
+    border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 /* Наші переваги */
@@ -708,6 +744,7 @@ svg{
 }
 
 .content-list .content-card {
+    position: relative;
     flex-basis: calc((100% - 48px) / 3);
 
     background-color: var(--card-bg-clr);
@@ -716,9 +753,14 @@ svg{
 
 .content-list .content-card:hover,
 .content-list .content-card:focus {
-    box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08);;
+    box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08);
+    
 }
 
+.content-card .link:hover .card-overlay,
+.content-card .link:focus .card-overlay {
+    transform: translate(0,0);
+}
 
 .content-wrapper {
     border: 1px solid var(--footer-text-color);
@@ -728,8 +770,30 @@ svg{
     padding-left: 16px;
 }
 
-.content-card img {
-    /* margin-bottom: 32px; */
+.content-card .card-overlay {
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    padding: 40px 32px 164px;
+    overflow: auto;
+    transform: translate(0,100%);
+    transition: transform 500ms linear;
+
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+
+    color: #F4F4FD;
+    background-color: #4D5AE5;
+    /* opacity: 0; */
+}
+
+.content-list .img-wrapper {
+    position: relative;
+    overflow: hidden;
 }
 
 .content-list .link {
