@@ -24,7 +24,7 @@
             <!-- Навігація по сайту -->
             <nav>
                 <ul class="site-nav list">
-                    <li class="item current">
+                    <li class="item">
                         <a href="./index.html" title="Studio" class="link current">Studio</a>
                     </li>
                     <li class="item">
@@ -53,17 +53,11 @@
         <section class="hero">
             <div class="container">
                 <h1 class="hero-title">Effective Solutions <br/> for Your Business</h1>
-                <button type="button" class="button primary">Order Service</button>
+                <button type="button" class="button primary" data-modal-open>Order Service</button>
                 <!-- <a href="" alt="order">Order Service</a> -->
-                <!-- Modal window -->
-            </div>
-            <div class="modal-layout">
-                <div class="modal-window">
-                    <button type="button" class="modal-btn"></button>
-                </div>
             </div>
         </section>
-        <!-- Секція "Наші переваги" -->
+        <!-- Section "Benefits" -->
         <section class="section benefits">
             <div class="container">
                 <h2 class="section-title">Our advantages</h2>
@@ -115,7 +109,7 @@
                 </ul>
             </div>
         </section>
-        <!-- Секція  "Чим ми займаємося"-->
+        <!-- Sections "Works"-->
         <section class="section work">
             <div class="container">
                 <h2 class="section-title">What are we doing</h2>
@@ -132,7 +126,7 @@
                 </ul>
             </div>
         </section>
-        <!-- Секція "Наша команда" -->
+        <!-- Section "Team" -->
         <section class="section team">
             <div class="container">
                 <h2 class="section-title">Our Team</h2>
@@ -288,6 +282,7 @@
                 </ul>
             </div>
         </section>
+        <!-- Section "Customers" -->
         <section class="section customer">
             <div class="container">
                 <h2 class="section-title">Customers</h2>
@@ -384,11 +379,18 @@
             </div>
         </div>
     </footer>
-    <div class="modal-layout">
-        <div class="modal-window">
-            <button type="button" class="modal-btn"></button>
+    <!-- Modals -->
+    <div class="backdrop is-hidden" data-modal>
+        <div class="modal">
+            <button type="button" class="modal-btn" data-modal-close>
+                <svg class="modal-exit-btn-icon" width="8" height="8">
+                    <use href="./svg/symbol-defs.svg#icon-exit_btn">
+                    </use>
+                </svg>
+            </button>
         </div>
     </div>
+    <!-- Scripts -->
     <script src="./js/modal.js"></script>
 </body>
 

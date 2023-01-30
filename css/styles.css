@@ -45,6 +45,8 @@
     --btn-non-actvive-bg: #F4F4FD;
     --btn-active-txt-clr: #FFFFFF;
     --btn-non-active-txt-clr: #4D5AE5;
+    /* Decoration */
+    --trans-dur-and-func: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .page {
@@ -153,6 +155,7 @@ svg{
     margin-left: 40px;
 } */
 
+/* Navigation */
 .site-nav .link {
     display: block;
     padding-top: 24px;
@@ -163,33 +166,36 @@ svg{
 
     font-weight: 500;
     font-size: 16px;
-    line-height: 1.5;
+    line-height: 1.5; 
+}
+
+.site-nav .link:hover,
+.site-nav .link:focus {
+    color: var(--accent-color);
+    transition: color var(--trans-dur-and-func);
 }
 
 .site-nav .item.current {
     position: relative;
 }
 .site-nav .link.current {
+    position: relative;
     color: var(--accent-color);
 }
 
 .site-nav .link.current::after {
     content: "";
-    position: relative;
+    position: absolute;
     bottom: 0;
     left: 0;
-    width: 48px;
+    width: 100%;
     height: 4px;
 
     border-radius: 2px;
     background-color: var(--btn-active-bg);
 }
 
-.site-nav .link:hover,
-.site-nav .link:focus {
-    color: var(--accent-color);
-}
-
+/* Contacts*/
 .site-contact {
     margin-left: auto;
 }
@@ -201,12 +207,15 @@ svg{
 
     color: var(--primary-text-color);
     text-decoration: none;
+
 }
 
 .site-contact .link:hover,
 .site-contact .link:focus {
     color: var(--accent-color);
+    transition: color var(--trans-dur-and-func);
 }
+
 
 /* Hero */
 
@@ -262,25 +271,68 @@ svg{
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
 }
 
-.modal-layout {
-    position: relative;
+/* Modal window */
+
+.backdrop {
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
 
     background-color: rgba(46, 47, 66, 0.4);
+
+    transition: opacity var(--trans-dur-and-func),
+                visibility var(--trans-dur-and-func);
+}
+
+.backdrop.is-hidden {
+    opacity: 0;
+    visibility: hidden;
     pointer-events: none;
+}
+
+.modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 408px;
+    height: 576px;
+
+    background: #FCFCFC;
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 2px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
 }
 
 .modal-btn {
     position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    right: 0;
+    transform: translate(-24px, 24px);
     width: 24px;
     height: 24px;
-    border-radius: 50%;
 
+    border-radius: 50%;
     background: #E7E9FC;
     border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.modal-btn:hover,
+.modal-btn:focus {
+    background-color: var(--btn-active-bg);
+    border-color: var(--btn-active-bg);
+    transition: background-color var(--trans-dur-and-func),
+                border-color var(--trans-dur-and-func);
+}
+
+.modal-btn:hover .modal-exit-btn-icon,
+.modal-btn:focus .modal-exit-btn-icon {
+    fill: #E7E9FC;
+    transition: fill var(--trans-dur-and-func);
 }
 
 /* Наші переваги */
@@ -465,11 +517,13 @@ svg{
     width: 40px;
     background-color: var(--accent-color);
     border-radius: 50%;
+    
 }
 
 .soc-item:hover,
 .soc-item:focus {
     background-color: #FFFFFF;
+    transition: background-color var(--trans-dur-and-func);
 }
 
 .soc-item .link {
@@ -491,6 +545,7 @@ svg{
 .soc-item:hover .soc-icon,
 .soc-item:focus .soc-icon {
     fill: var(--accent-color);
+    transition: fill var(--trans-dur-and-func);
 }
 
 /* Customers */
@@ -523,6 +578,7 @@ svg{
     height: 88px;
     border: 1px solid #8E8F99;
     border-radius: 4px;
+
 }
 
 .custom-card:not(:last-child) {
@@ -531,11 +587,13 @@ svg{
 .custom-card:focus,
 .custom-card:hover {
     border: 1px solid var(--accent-color);
+    transition: border var(--trans-dur-and-func);
 }
 
 .custom-card:hover .custom,
 .custom-card:focus .custom{
     fill: var(--accent-color);
+    transition: fill var(--trans-dur-and-func);
 }
 
 .custom {
@@ -672,11 +730,13 @@ svg{
 .footer .soc-item:hover,
 .footer .soc-item:focus {
     background-color: #F4F4FD;
+    transition: background-color var(--trans-dur-and-func);
 }
 
 .footer .soc-item:hover .soc-icon,
-.footer .soc-item:focus .soc-icon{
+.footer .soc-item:focus .soc-icon {
     fill: var(--primary-text-color)
+    transition: fill var(--trans-dur-and-func); 
 }
 /* Portfolio */
 
@@ -729,6 +789,11 @@ svg{
     box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 
     0px 2px 1px rgba(0, 0, 0, 0.08), 
     0px 2px 2px rgba(0, 0, 0, 0.12);
+
+    transition: color var(--trans-dur-and-func), 
+                background-color var(--trans-dur-and-func),
+                box-shadow var(--trans-dur-and-func),
+                border var(--trans-dur-and-func);
 }
 
 .section.buttons{
@@ -754,6 +819,7 @@ svg{
 .content-list .content-card:hover,
 .content-list .content-card:focus {
     box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08);
+    transition: box-shadow var(--trans-dur-and-func); 
     
 }
 
