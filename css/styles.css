@@ -440,10 +440,6 @@ svg{
     background-color: var(--team-bg-clr);
 }
 
-.team .container {
-
-}
-
 .team .section-title {
     margin-bottom: 72px;
 }
@@ -735,7 +731,7 @@ svg{
 
 .footer .soc-item:hover .soc-icon,
 .footer .soc-item:focus .soc-icon {
-    fill: var(--primary-text-color)
+    fill: var(--primary-text-color);
     transition: fill var(--trans-dur-and-func); 
 }
 /* Portfolio */
